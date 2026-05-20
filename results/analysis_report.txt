@@ -1,0 +1,45 @@
+======================================================================
+LAPORAN ANALISIS: SISTEM PENCOCOKAN OBJEK BERBASIS FITUR LOKAL
+======================================================================
+
+1. ANALISIS KECEPATAN DAN EFISIENSI
+----------------------------------------
+  Tercepat: SIFT (12.00ms avg)
+  Terlambat: ORB (35.00ms avg)
+  Rasio kecepatan SIFT/ORB: 2.9x lebih cepat
+
+2. AKURASI PENCOCOKAN FITUR
+----------------------------------------
+  SIFT (BF): avg inlier ratio = 0.737 ± 0.249
+  ORB (BF): avg inlier ratio = 0.792 ± 0.234
+
+3. ROBUSTNESS TERHADAP DEGRADASI
+----------------------------------------
+  rotation       : Best = ORB (0.827)
+  scale          : Best = SIFT (0.788)
+  illumination   : Best = ORB (0.732)
+  occlusion      : Best = ORB (0.806)
+  combined       : Best = ORB (0.834)
+
+4. BAG OF VISUAL WORDS
+----------------------------------------
+  SIFT: Best SVM accuracy = 0.873 (k=100)
+  ORB: Best SVM accuracy = 0.873 (k=20)
+
+5. PCA DIMENSIONALITY REDUCTION
+----------------------------------------
+  SIFT: Original=0.737, PCA-64=0.728, Drop=1.2%
+  ORB: Original=0.758, PCA-64=0.000, Drop=100.0%
+
+6. REKOMENDASI PENGGUNAAN
+----------------------------------------
+  • SIFT: Direkomendasikan untuk akurasi tinggi, tolerate terhadap
+          variasi skala/rotasi, cocok untuk pencocokan referensi
+  • SURF: Keseimbangan kecepatan-akurasi yang baik, cocok untuk
+          aplikasi real-time dengan resource memadai
+  • ORB:  Tercepat dan gratis lisensi, cocok untuk embedded systems,
+          perangkat mobile, dan aplikasi real-time
+  • BoVW dengan k=50: Optimal untuk klasifikasi objek (SVM)
+  • PCA-64: Kompromi baik antara akurasi dan efisiensi memori
+
+======================================================================
